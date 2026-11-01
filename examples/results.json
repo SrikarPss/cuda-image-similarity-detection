@@ -1,0 +1,136 @@
+{
+  "project": "image-similarity",
+  "environment": {
+    "recorded_at_utc": "2026-11-01T22:08:22.916058+00:00",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "logical_cpus": 10,
+    "python": "3.13.16",
+    "packages": {
+      "numpy": "2.5.4",
+      "torch": "2.15.0",
+      "Pillow": "13.0.0",
+      "matplotlib": "3.11.2",
+      "mpi4py": "4.1.2"
+    },
+    "backends": {
+      "cpu": {
+        "available": true,
+        "reason": "available"
+      },
+      "openmp": {
+        "available": true,
+        "reason": "available"
+      },
+      "torch-cpu": {
+        "available": true,
+        "reason": "available"
+      },
+      "mps": {
+        "available": false,
+        "reason": "MPS is unavailable in this process; try a regular macOS terminal"
+      },
+      "cuda-naive": {
+        "available": false,
+        "reason": "CUDA library was not built; NVIDIA hardware and nvcc are required"
+      },
+      "cuda-optimized": {
+        "available": false,
+        "reason": "CUDA library was not built; NVIDIA hardware and nvcc are required"
+      },
+      "cublas": {
+        "available": false,
+        "reason": "CUDA library was not built; NVIDIA hardware and nvcc are required"
+      }
+    }
+  },
+  "source": "synthetic shapes with mirror and small-noise variants",
+  "images": 96,
+  "size": 64,
+  "bins": 16,
+  "threshold": 0.985,
+  "seed": 42,
+  "threads": 4,
+  "timing_scope": "Warm median wall time for descriptor extraction + exact search + self exclusion. Includes validation, allocation, transfers and result copies; excludes image loading, candidate compaction and report writing.",
+  "limitations": "Histogram candidates require review. Spatial arrangements can share descriptors. Only the top five neighbors per image are considered for thresholded pairs.",
+  "records": [
+    {
+      "backend": "cpu",
+      "status": "ok",
+      "median_ms": 1.8707079580053687,
+      "min_ms": 1.8515839474275708,
+      "samples_ms": [
+        1.9599159713834524,
+        1.8707079580053687,
+        1.8515839474275708
+      ],
+      "repeats": 3,
+      "warmup_runs": 1,
+      "images_per_second": 51317.47025995411,
+      "max_descriptor_error": 0.0,
+      "candidate_pairs": 74,
+      "pair_precision": 1.0,
+      "pair_recall": 0.7708333333333334,
+      "top1_same_group_rate": 1.0
+    },
+    {
+      "backend": "openmp",
+      "status": "ok",
+      "median_ms": 0.7389580132439733,
+      "min_ms": 0.6847500335425138,
+      "samples_ms": [
+        0.6847500335425138,
+        16.86708303168416,
+        0.7389580132439733
+      ],
+      "repeats": 3,
+      "warmup_runs": 1,
+      "images_per_second": 129912.65847238981,
+      "max_descriptor_error": 0.0,
+      "candidate_pairs": 74,
+      "pair_precision": 1.0,
+      "pair_recall": 0.7708333333333334,
+      "top1_same_group_rate": 1.0
+    },
+    {
+      "backend": "torch-cpu",
+      "status": "ok",
+      "median_ms": 3.1899999594315886,
+      "min_ms": 2.9129580361768603,
+      "samples_ms": [
+        3.390165977180004,
+        3.1899999594315886,
+        2.9129580361768603
+      ],
+      "repeats": 3,
+      "warmup_runs": 1,
+      "images_per_second": 30094.04426986444,
+      "max_descriptor_error": 1.1920928955078125e-07,
+      "candidate_pairs": 74,
+      "pair_precision": 1.0,
+      "pair_recall": 0.7708333333333334,
+      "top1_same_group_rate": 1.0
+    },
+    {
+      "backend": "mps",
+      "status": "skipped",
+      "reason": "MPS is unavailable in this process; try a regular macOS terminal"
+    },
+    {
+      "backend": "cuda-naive",
+      "status": "skipped",
+      "reason": "CUDA library was not built; NVIDIA hardware and nvcc are required"
+    },
+    {
+      "backend": "cuda-optimized",
+      "status": "skipped",
+      "reason": "CUDA library was not built; NVIDIA hardware and nvcc are required"
+    },
+    {
+      "backend": "cublas",
+      "status": "skipped",
+      "reason": "CUDA library was not built; NVIDIA hardware and nvcc are required"
+    }
+  ],
+  "provenance": "Measured on synthetic demo inputs before repository separation; numerical algorithms are retained. Re-run run.py for this checkout."
+}
